@@ -1,14 +1,12 @@
 @extends('layouts.app')
 @section('content')
-<div class="row">
-  <div class="col-lg-12 margin-tb">
-    <div class="pull-left">
-      <h2>Pagina Principal Tipo de peliculas</h2>
-    </div>
+<div class="card">
+  <div class="card-header">
+  <h3 class="panel-title">Pagina Principal Tipo de peliculas</h3>
 
   </div>
-</div>
-<div class="col-lg-12 col-md-12 col-xs-12">
+  <div class="cars-body">
+  <div class="col-lg-12 col-md-12 col-xs-12">
   <div class="pull-right">
     <a class="btn btn-success" href="{{ route('type_movie.create') }}"> Crear Nuevo tipo de pelicula</a>
   </div>
@@ -43,6 +41,9 @@
 
   {{ $type_movies->links() }}
 </div>
+  </div>
+</div>
+
 
 
 

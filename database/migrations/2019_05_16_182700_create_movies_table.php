@@ -16,11 +16,13 @@ class CreateMoviesTable extends Migration
         Schema::create('movies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name',100);
-            $table->integer('type_movies_id')->unsigned();
-            
-            $table->foreign('type_movies_id')
-            ->references('id')->on('type_movies');
+            $table->UnsignedInteger('type_movies_id');
+           
             $table->timestamps();
+            $table->foreign('type_movies_id')->references('id')
+            ->on('type_movies')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 
