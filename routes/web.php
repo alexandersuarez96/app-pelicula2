@@ -22,3 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/type_movie', 'TypeMovieController');
 
 Route::resource('/movie', 'MovieController');
+
+Route::get('/mostrarpeliculaspdf', 'MovieController@pdf')->name('movie.pdf');
+
+Route::get('/mostrargenerospdf', 'TypeMovieController@pdf')->name('type_movie.pdf');

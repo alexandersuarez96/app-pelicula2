@@ -48,7 +48,14 @@
   </tr>
   @endforeach
 </table>
+<th>
+    <div class="btn-group">
+      <a href="{{ route('movie.pdf') }}" class="btn btn-warning" target="blank">Generar PDF </a>
+    </div>
+  <td>
 
+    </th>
+    <h1></h1>
 </table>
 
 {{ $movies->links() }}

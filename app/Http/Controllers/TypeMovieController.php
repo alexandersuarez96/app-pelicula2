@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TypeMovie;
 use Illuminate\Http\Request;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class TypeMovieController extends Controller
 {
     /**
@@ -102,5 +102,16 @@ class TypeMovieController extends Controller
         TypeMovie::find($id)->delete();
       
         return redirect()->route('type_movie.index')->with('success','Registro eliminado satisfactoriamente');
+    }
+    public function pdf()
+    {        
+        /**
+         * toma en cuenta que para ver los mismos 
+         * datos debemos hacer la misma consulta
+        **/
+       $type_movies= TypeMovie::all(); 
+       
+       $pdf =PDF::loadView('type_movie.pdf',compact('type_movies'));
+       return $pdf->download('listado generos.pdf');
     }
 }

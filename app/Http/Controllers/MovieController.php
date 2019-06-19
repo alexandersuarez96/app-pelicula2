@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Movie;
 use\App\Models\TypeMovie;
 use Illuminate\Http\Request;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class MovieController extends Controller
 {
     /**
@@ -108,4 +108,16 @@ class MovieController extends Controller
       
         return redirect()->route('movie.index')->with('success','Registro eliminado satisfactoriamente');
     }
+    public function pdf()
+    {        
+        /**
+         * toma en cuenta que para ver los mismos 
+         * datos debemos hacer la misma consulta
+        **/
+       $movies= Movie::all(); 
+       
+       $pdf =PDF::loadView('movie.pdf',compact('movies'));
+       return $pdf->download('listado peliculas.pdf');
+    }
 }
+
